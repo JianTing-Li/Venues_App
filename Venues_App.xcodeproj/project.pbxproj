@@ -11,6 +11,14 @@
 		D687767B220E262200664CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D687767A220E262200664CF3 /* Assets.xcassets */; };
 		D687767E220E262200664CF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D687767C220E262200664CF3 /* LaunchScreen.storyboard */; };
 		D6877687220E266600664CF3 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6877686220E266600664CF3 /* APIKeys.swift */; };
+		D687768C220E2ECB00664CF3 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687768B220E2ECB00664CF3 /* NetworkHelper.swift */; };
+		D687768E220E2EDC00664CF3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687768D220E2EDC00664CF3 /* ImageHelper.swift */; };
+		D6877690220E2EEE00664CF3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687768F220E2EEE00664CF3 /* AppError.swift */; };
+		D6877693220E2F7300664CF3 /* VC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6877692220E2F7300664CF3 /* VC+Extensions.swift */; };
+		D6877696220E2FA300664CF3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6877695220E2FA300664CF3 /* Date+Extensions.swift */; };
+		D6877698220E2FBB00664CF3 /* String+DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6877697220E2FBB00664CF3 /* String+DateExtensions.swift */; };
+		D687769B220E301A00664CF3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687769A220E301A00664CF3 /* UIColor+Extensions.swift */; };
+		D687769E220E306300664CF3 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687769D220E306300664CF3 /* DataPersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +28,14 @@
 		D687767D220E262200664CF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D687767F220E262200664CF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6877686220E266600664CF3 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		D687768B220E2ECB00664CF3 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		D687768D220E2EDC00664CF3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		D687768F220E2EEE00664CF3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		D6877692220E2F7300664CF3 /* VC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Extensions.swift"; sourceTree = "<group>"; };
+		D6877695220E2FA300664CF3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		D6877697220E2FBB00664CF3 /* String+DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateExtensions.swift"; sourceTree = "<group>"; };
+		D687769A220E301A00664CF3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		D687769D220E306300664CF3 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +69,14 @@
 			isa = PBXGroup;
 			children = (
 				D6877673220E262000664CF3 /* AppDelegate.swift */,
+				D687769F220E309300664CF3 /* Model */,
+				D68776A0220E309A00664CF3 /* View */,
+				D68776A1220E309F00664CF3 /* Controller */,
+				D6877691220E2F4800664CF3 /* Alert Helper */,
+				D6877699220E2FFA00664CF3 /* Color Helper */,
+				D6877694220E2F8A00664CF3 /* Date Helpers */,
+				D687769C220E304500664CF3 /* File Manager Helper */,
+				D687768A220E2EB600664CF3 /* Network Services */,
 				D6877685220E264E00664CF3 /* Secret */,
 				D6877688220E2C2100664CF3 /* Suporting Files */,
 				D687767F220E262200664CF3 /* Info.plist */,
@@ -75,6 +99,70 @@
 				D687767C220E262200664CF3 /* LaunchScreen.storyboard */,
 			);
 			path = "Suporting Files";
+			sourceTree = "<group>";
+		};
+		D687768A220E2EB600664CF3 /* Network Services */ = {
+			isa = PBXGroup;
+			children = (
+				D687768D220E2EDC00664CF3 /* ImageHelper.swift */,
+				D687768B220E2ECB00664CF3 /* NetworkHelper.swift */,
+				D687768F220E2EEE00664CF3 /* AppError.swift */,
+			);
+			path = "Network Services";
+			sourceTree = "<group>";
+		};
+		D6877691220E2F4800664CF3 /* Alert Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D6877692220E2F7300664CF3 /* VC+Extensions.swift */,
+			);
+			path = "Alert Helper";
+			sourceTree = "<group>";
+		};
+		D6877694220E2F8A00664CF3 /* Date Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D6877695220E2FA300664CF3 /* Date+Extensions.swift */,
+				D6877697220E2FBB00664CF3 /* String+DateExtensions.swift */,
+			);
+			path = "Date Helpers";
+			sourceTree = "<group>";
+		};
+		D6877699220E2FFA00664CF3 /* Color Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D687769A220E301A00664CF3 /* UIColor+Extensions.swift */,
+			);
+			path = "Color Helper";
+			sourceTree = "<group>";
+		};
+		D687769C220E304500664CF3 /* File Manager Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D687769D220E306300664CF3 /* DataPersistenceManager.swift */,
+			);
+			path = "File Manager Helper";
+			sourceTree = "<group>";
+		};
+		D687769F220E309300664CF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D68776A0220E309A00664CF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D68776A1220E309F00664CF3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +236,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6877687220E266600664CF3 /* APIKeys.swift in Sources */,
+				D687768C220E2ECB00664CF3 /* NetworkHelper.swift in Sources */,
+				D6877696220E2FA300664CF3 /* Date+Extensions.swift in Sources */,
+				D6877693220E2F7300664CF3 /* VC+Extensions.swift in Sources */,
+				D6877690220E2EEE00664CF3 /* AppError.swift in Sources */,
 				D6877674220E262000664CF3 /* AppDelegate.swift in Sources */,
+				D6877698220E2FBB00664CF3 /* String+DateExtensions.swift in Sources */,
+				D687769B220E301A00664CF3 /* UIColor+Extensions.swift in Sources */,
+				D687768E220E2EDC00664CF3 /* ImageHelper.swift in Sources */,
+				D687769E220E306300664CF3 /* DataPersistenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
