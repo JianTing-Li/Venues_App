@@ -31,10 +31,16 @@ class MapView: UIView {
         setUpViews()
     }
     private func setUpViews() {
-        
+        setupMapView()
     }
     private func setupMapView() {
-        
+        addSubview(mapView)
+        //mapView.backgroundColor = .yellow
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
   
 }
