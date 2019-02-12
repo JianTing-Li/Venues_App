@@ -8,3 +8,23 @@
 
 import Foundation
 
+struct FourSquarePhotos: Codable {
+    let response: PhotoData
+}
+
+struct PhotoData: Codable {
+    let count: Int
+    let items: [EventPhoto]
+}
+
+struct EventPhoto: Codable {
+    let id: String
+    let createdAt: Int
+    struct Source: Codable {
+        let name: String
+        let url: String
+    }
+    let source: Source
+    let prefix: String
+    let suffix: String
+}
