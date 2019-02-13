@@ -17,10 +17,11 @@ final class ApiClient {
                 completionHandler(AppError.networkError(error), nil)
             } else if let data = data {
                 do {
-                    let outerLayer = try JSONDecoder().decode(FourSquarePhotos.self, from: data)
-                    let photos = outerLayer.response
-                    let photoData = photos.photos
-                    let eventPhotos = photoData?.items
+                    let eventPhotos = try JSONDecoder().decode(FourSquarePhotos.self, from: data).response.photos.items
+                    guard !eventPhotos.isEmpty else {
+                        print("No photos for this Venue")
+                        return
+                    }
                     completionHandler(nil, eventPhotos)
                 } catch {
                     completionHandler(AppError.jsonDecodingError(error), nil)
