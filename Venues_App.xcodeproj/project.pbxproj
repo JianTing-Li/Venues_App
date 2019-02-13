@@ -31,6 +31,7 @@
 		D6877698220E2FBB00664CF3 /* String+DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6877697220E2FBB00664CF3 /* String+DateExtensions.swift */; };
 		D687769B220E301A00664CF3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687769A220E301A00664CF3 /* UIColor+Extensions.swift */; };
 		D687769E220E306300664CF3 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687769D220E306300664CF3 /* DataPersistenceManager.swift */; };
+		D6A0797D2214C3EA00C4D9FD /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0797C2214C3EA00C4D9FD /* SecretKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		D6877697220E2FBB00664CF3 /* String+DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateExtensions.swift"; sourceTree = "<group>"; };
 		D687769A220E301A00664CF3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		D687769D220E306300664CF3 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		D6A0797C2214C3EA00C4D9FD /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				D6877673220E262000664CF3 /* AppDelegate.swift */,
+				D6A0797B2214C3AB00C4D9FD /* Secret */,
 				2E3C931D2211E161006FEA3F /* Controller */,
 				2E3C93332211E5FA006FEA3F /* Model */,
 				2E3C932E2211E540006FEA3F /* View */,
@@ -191,6 +194,14 @@
 				D687769D220E306300664CF3 /* DataPersistenceManager.swift */,
 			);
 			path = "File Manager Helper";
+			sourceTree = "<group>";
+		};
+		D6A0797B2214C3AB00C4D9FD /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				D6A0797C2214C3EA00C4D9FD /* SecretKeys.swift */,
+			);
+			name = Secret;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 				2E3C93252211E4A2006FEA3F /* SearchView.swift in Sources */,
 				2E3C931F2211E1D1006FEA3F /* SettingsViewController.swift in Sources */,
 				2E3C93322211E5EC006FEA3F /* Photo.swift in Sources */,
+				D6A0797D2214C3EA00C4D9FD /* SecretKeys.swift in Sources */,
 				D687769E220E306300664CF3 /* DataPersistenceManager.swift in Sources */,
 				2E3C932B2211E524006FEA3F /* SettingsView.swift in Sources */,
 				9336FBFC2211EB20007C661B /* APIClient.swift in Sources */,
