@@ -27,11 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fav.title = "Favorites"
         tab.viewControllers = [nav, setting, fav]
         window = UIWindow(frame: UIScreen.main.bounds)
-<<<<<<< HEAD
         window?.rootViewController = setting
-=======
-        window?.rootViewController = SearchDetailViewController()
->>>>>>> 220f220c47400897f25e329279199566dc78e62d
         window?.makeKeyAndVisible()
         return true
     }
