@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F39D7462214BEBC0089F641 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */; };
 		2E3C931A2211E0F4006FEA3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C93192211E0F4006FEA3F /* SearchViewController.swift */; };
 		2E3C931C2211E129006FEA3F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C931B2211E129006FEA3F /* MapViewController.swift */; };
 		2E3C931F2211E1D1006FEA3F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C931E2211E1D1006FEA3F /* SettingsViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E3C93192211E0F4006FEA3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2E3C931B2211E129006FEA3F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2E3C931E2211E1D1006FEA3F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				D6877673220E262000664CF3 /* AppDelegate.swift */,
 				D6A0797B2214C3AB00C4D9FD /* Secret */,
+				1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */,
 				2E3C931D2211E161006FEA3F /* Controller */,
 				2E3C93332211E5FA006FEA3F /* Model */,
 				2E3C932E2211E540006FEA3F /* View */,
@@ -283,6 +286,7 @@
 				2E3C93272211E4D2006FEA3F /* SearchDetailView.swift in Sources */,
 				D6877693220E2F7300664CF3 /* VC+Extensions.swift in Sources */,
 				2E3C93292211E4ED006FEA3F /* MapView.swift in Sources */,
+				1F39D7462214BEBC0089F641 /* FavoritesCollectionViewCell.swift in Sources */,
 				D6877690220E2EEE00664CF3 /* AppError.swift in Sources */,
 				2E3C93302211E5BE006FEA3F /* Venue.swift in Sources */,
 				D6877674220E262000664CF3 /* AppDelegate.swift in Sources */,
