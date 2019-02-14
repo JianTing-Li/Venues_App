@@ -31,4 +31,6 @@ struct EventPhoto: Codable {
     let source: Source
     let prefix: String
     let suffix: String
+    let width: Int
+    let height: Int
 }
