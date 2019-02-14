@@ -23,6 +23,7 @@
 		2E3C93322211E5EC006FEA3F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C93312211E5EC006FEA3F /* Photo.swift */; };
 		2E3C93542214C464006FEA3F /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C93532214C464006FEA3F /* Secret.swift */; };
 		9336FBFC2211EB20007C661B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336FBFB2211EB20007C661B /* APIClient.swift */; };
+		9336FC342215F640007C661B /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336FC332215F640007C661B /* SecretKeys.swift */; };
 		D6877674220E262000664CF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6877673220E262000664CF3 /* AppDelegate.swift */; };
 		D687767B220E262200664CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D687767A220E262200664CF3 /* Assets.xcassets */; };
 		D687767E220E262200664CF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D687767C220E262200664CF3 /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		2E3C93312211E5EC006FEA3F /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		2E3C93532214C464006FEA3F /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		9336FBFB2211EB20007C661B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		9336FC332215F640007C661B /* SecretKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		D6877670220E262000664CF3 /* Venues_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venues_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6877673220E262000664CF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D687767A220E262200664CF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +115,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9336FC322215F640007C661B /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				9336FC332215F640007C661B /* SecretKeys.swift */,
+			);
+			name = Secret;
+			path = ../../Secret;
+			sourceTree = "<group>";
+		};
 		D6877667220E262000664CF3 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +146,7 @@
 			children = (
 				D6877673220E262000664CF3 /* AppDelegate.swift */,
 				1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */,
+				9336FC322215F640007C661B /* Secret */,
 				2E3C931D2211E161006FEA3F /* Controller */,
 				2E3C93332211E5FA006FEA3F /* Model */,
 				2E3C932E2211E540006FEA3F /* View */,
@@ -277,7 +289,9 @@
 				2E3C93232211E21A006FEA3F /* SearchDetailViewController.swift in Sources */,
 				2E3C931A2211E0F4006FEA3F /* SearchViewController.swift in Sources */,
 				2E3C93212211E1EA006FEA3F /* FavoritesViewController.swift in Sources */,
+
 				1F39D7482215D9A00089F641 /* SecretKeys.swift in Sources */,
+
 				D6877696220E2FA300664CF3 /* Date+Extensions.swift in Sources */,
 				2E3C93272211E4D2006FEA3F /* SearchDetailView.swift in Sources */,
 				D6877693220E2F7300664CF3 /* VC+Extensions.swift in Sources */,
