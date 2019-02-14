@@ -12,7 +12,6 @@ class MapViewController: UIViewController {
     let mapView = MapView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.items?[0].image = UIImage(named: "help")
         self.view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         title = "My Map"
         view.addSubview(mapView)

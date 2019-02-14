@@ -19,15 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let VC = SearchViewController()
         let nav = UINavigationController.init(rootViewController: VC)
         let tab = UITabBarController()
+        VC.tabBarItem = UITabBarItem.init(title: "Search", image: UIImage(named: "search"), tag: 0)
         let map = MapViewController()
         map.title = "Map"
         let setting = SettingsViewController()
         setting.title = "Settings"
+        setting.tabBarItem = UITabBarItem.init(title: "Setting", image: UIImage(named: "settings"), tag: 1)
         let fav = FavoritesViewController()
         fav.title = "Favorites"
+        fav.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(named: "bookmark"), tag: 2)
         tab.viewControllers = [nav, setting, fav]
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = setting
+        window?.rootViewController = tab
         window?.makeKeyAndVisible()
         return true
     }
