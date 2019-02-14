@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fav.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(named: "bookmark"), tag: 2)
         tab.viewControllers = [nav, setting, fav]
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = setting
         window?.rootViewController = tab
         window?.makeKeyAndVisible()
         return true
