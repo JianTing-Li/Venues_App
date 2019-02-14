@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F39D7462214BEBC0089F641 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */; };
+		1F39D7482215D9A00089F641 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D7472215D9A00089F641 /* SecretKeys.swift */; };
 		2E3C931A2211E0F4006FEA3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C93192211E0F4006FEA3F /* SearchViewController.swift */; };
 		2E3C931C2211E129006FEA3F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C931B2211E129006FEA3F /* MapViewController.swift */; };
 		2E3C931F2211E1D1006FEA3F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C931E2211E1D1006FEA3F /* SettingsViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F39D7472215D9A00089F641 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		2E3C93192211E0F4006FEA3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2E3C931B2211E129006FEA3F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2E3C931E2211E1D1006FEA3F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				2E3C932F2211E5BE006FEA3F /* Venue.swift */,
 				2E3C93312211E5EC006FEA3F /* Photo.swift */,
+				1F39D7472215D9A00089F641 /* SecretKeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				2E3C93232211E21A006FEA3F /* SearchDetailViewController.swift in Sources */,
 				2E3C931A2211E0F4006FEA3F /* SearchViewController.swift in Sources */,
 				2E3C93212211E1EA006FEA3F /* FavoritesViewController.swift in Sources */,
+				1F39D7482215D9A00089F641 /* SecretKeys.swift in Sources */,
 				D6877696220E2FA300664CF3 /* Date+Extensions.swift in Sources */,
 				2E3C93272211E4D2006FEA3F /* SearchDetailView.swift in Sources */,
 				D6877693220E2F7300664CF3 /* VC+Extensions.swift in Sources */,

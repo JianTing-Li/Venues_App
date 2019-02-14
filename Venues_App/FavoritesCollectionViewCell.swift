@@ -44,16 +44,17 @@ extension FavoritesCollectionViewCell {
     }
     private func setupImage() {
         addSubview(favoritesImage)
-        favoritesImage.translatesAutoresizingMaskIntoConstraints = true
+        favoritesImage.backgroundColor = .black
+        favoritesImage.translatesAutoresizingMaskIntoConstraints = false
         favoritesImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        favoritesImage.heightAnchor.constraint(equalToConstant: 130).isActive = true
-        favoritesImage.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        favoritesImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        favoritesImage.widthAnchor.constraint(equalToConstant: 300).isActive = true
         favoritesImage.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         
     }
     private func setupTitle() {
         addSubview(favoritesTitle)
-        favoritesTitle.translatesAutoresizingMaskIntoConstraints = true
+        favoritesTitle.backgroundColor = .yellow
         favoritesTitle.translatesAutoresizingMaskIntoConstraints = false
         favoritesTitle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         favoritesTitle.topAnchor.constraint(equalTo: favoritesImage.bottomAnchor, constant: 5).isActive = true
@@ -63,13 +64,14 @@ extension FavoritesCollectionViewCell {
     }
     private func setupDescription() {
         addSubview(favoritesDescription)
-        favoritesDescription.translatesAutoresizingMaskIntoConstraints = true
+        favoritesDescription.backgroundColor = .green
         favoritesDescription.translatesAutoresizingMaskIntoConstraints = false
         favoritesDescription.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         favoritesDescription.topAnchor.constraint(equalTo: favoritesTitle.bottomAnchor, constant: 10).isActive = true
         favoritesDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
         favoritesDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        favoritesDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        //favoritesDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        favoritesDescription.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
 }
