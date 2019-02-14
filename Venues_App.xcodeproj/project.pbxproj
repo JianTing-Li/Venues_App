@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F39D7462214BEBC0089F641 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */; };
 		2E3C931A2211E0F4006FEA3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C93192211E0F4006FEA3F /* SearchViewController.swift */; };
 		2E3C931C2211E129006FEA3F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C931B2211E129006FEA3F /* MapViewController.swift */; };
 		2E3C931F2211E1D1006FEA3F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C931E2211E1D1006FEA3F /* SettingsViewController.swift */; };
@@ -19,10 +20,7 @@
 		2E3C932D2211E531006FEA3F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C932C2211E531006FEA3F /* FavoritesView.swift */; };
 		2E3C93302211E5BE006FEA3F /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C932F2211E5BE006FEA3F /* Venue.swift */; };
 		2E3C93322211E5EC006FEA3F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C93312211E5EC006FEA3F /* Photo.swift */; };
-
-		9336FBFA2211E9AC007C661B /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336FBF92211E9AC007C661B /* SecretKeys.swift */; };
 		9336FBFC2211EB20007C661B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336FBFB2211EB20007C661B /* APIClient.swift */; };
-
 		D6877674220E262000664CF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6877673220E262000664CF3 /* AppDelegate.swift */; };
 		D687767B220E262200664CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D687767A220E262200664CF3 /* Assets.xcassets */; };
 		D687767E220E262200664CF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D687767C220E262200664CF3 /* LaunchScreen.storyboard */; };
@@ -37,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E3C93192211E0F4006FEA3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2E3C931B2211E129006FEA3F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2E3C931E2211E1D1006FEA3F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -49,10 +48,7 @@
 		2E3C932C2211E531006FEA3F /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		2E3C932F2211E5BE006FEA3F /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		2E3C93312211E5EC006FEA3F /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-
-		9336FBF92211E9AC007C661B /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		9336FBFB2211EB20007C661B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-
 		D6877670220E262000664CF3 /* Venues_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venues_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6877673220E262000664CF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D687767A220E262200664CF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,16 +108,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9336FBF82211E98A007C661B /* Secret */ = {
-			isa = PBXGroup;
-			children = (
-
-				9336FBF92211E9AC007C661B /* SecretKeys.swift */,
-
-			);
-			path = Secret;
-			sourceTree = "<group>";
-		};
 		D6877667220E262000664CF3 = {
 			isa = PBXGroup;
 			children = (
@@ -141,8 +127,8 @@
 		D6877672220E262000664CF3 /* Venues_App */ = {
 			isa = PBXGroup;
 			children = (
-				9336FBF82211E98A007C661B /* Secret */,
 				D6877673220E262000664CF3 /* AppDelegate.swift */,
+				1F39D7452214BEBC0089F641 /* FavoritesCollectionViewCell.swift */,
 				2E3C931D2211E161006FEA3F /* Controller */,
 				2E3C93332211E5FA006FEA3F /* Model */,
 				2E3C932E2211E540006FEA3F /* View */,
@@ -289,6 +275,7 @@
 				2E3C93272211E4D2006FEA3F /* SearchDetailView.swift in Sources */,
 				D6877693220E2F7300664CF3 /* VC+Extensions.swift in Sources */,
 				2E3C93292211E4ED006FEA3F /* MapView.swift in Sources */,
+				1F39D7462214BEBC0089F641 /* FavoritesCollectionViewCell.swift in Sources */,
 				D6877690220E2EEE00664CF3 /* AppError.swift in Sources */,
 				2E3C93302211E5BE006FEA3F /* Venue.swift in Sources */,
 				D6877674220E262000664CF3 /* AppDelegate.swift in Sources */,
@@ -301,10 +288,7 @@
 				2E3C93322211E5EC006FEA3F /* Photo.swift in Sources */,
 				D687769E220E306300664CF3 /* DataPersistenceManager.swift in Sources */,
 				2E3C932B2211E524006FEA3F /* SettingsView.swift in Sources */,
-
 				9336FBFC2211EB20007C661B /* APIClient.swift in Sources */,
-				9336FBFA2211E9AC007C661B /* SecretKeys.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,8 +427,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 79H8CH9S4F;
+				DEVELOPMENT_TEAM = 752A7KA7V2;
 				INFOPLIST_FILE = Venues_App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,8 +446,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 79H8CH9S4F;
+				DEVELOPMENT_TEAM = 752A7KA7V2;
 				INFOPLIST_FILE = Venues_App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
