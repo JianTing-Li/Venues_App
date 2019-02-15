@@ -32,9 +32,9 @@
 		D6877698220E2FBB00664CF3 /* String+DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6877697220E2FBB00664CF3 /* String+DateExtensions.swift */; };
 		D687769B220E301A00664CF3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687769A220E301A00664CF3 /* UIColor+Extensions.swift */; };
 		D687769E220E306300664CF3 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D687769D220E306300664CF3 /* DataPersistenceManager.swift */; };
-		D6A0797D2214C3EA00C4D9FD /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0797C2214C3EA00C4D9FD /* SecretKeys.swift */; };
 		D6A079B32217477F00C4D9FD /* FavoriteVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A079B22217477F00C4D9FD /* FavoriteVenue.swift */; };
 		D6A079B522174A5700C4D9FD /* FavoriteDataPersistenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A079B422174A5700C4D9FD /* FavoriteDataPersistenceModel.swift */; };
+		D6A079B922175D7300C4D9FD /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A079B822175D7300C4D9FD /* SecretKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,9 +65,9 @@
 		D6877697220E2FBB00664CF3 /* String+DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateExtensions.swift"; sourceTree = "<group>"; };
 		D687769A220E301A00664CF3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		D687769D220E306300664CF3 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
-		D6A0797C2214C3EA00C4D9FD /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		D6A079B22217477F00C4D9FD /* FavoriteVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVenue.swift; sourceTree = "<group>"; };
 		D6A079B422174A5700C4D9FD /* FavoriteDataPersistenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDataPersistenceModel.swift; sourceTree = "<group>"; };
+		D6A079B822175D7300C4D9FD /* SecretKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecretKeys.swift; path = Secret/SecretKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +208,7 @@
 		D6A0797B2214C3AB00C4D9FD /* Secret */ = {
 			isa = PBXGroup;
 			children = (
-				D6A0797C2214C3EA00C4D9FD /* SecretKeys.swift */,
+				D6A079B822175D7300C4D9FD /* SecretKeys.swift */,
 			);
 			name = Secret;
 			sourceTree = "<group>";
@@ -300,12 +300,12 @@
 				2E3C931C2211E129006FEA3F /* MapViewController.swift in Sources */,
 				D6A079B522174A5700C4D9FD /* FavoriteDataPersistenceModel.swift in Sources */,
 				D687769B220E301A00664CF3 /* UIColor+Extensions.swift in Sources */,
+				D6A079B922175D7300C4D9FD /* SecretKeys.swift in Sources */,
 				D687768E220E2EDC00664CF3 /* ImageHelper.swift in Sources */,
 				2E3C93252211E4A2006FEA3F /* SearchView.swift in Sources */,
 				2E3C931F2211E1D1006FEA3F /* SettingsViewController.swift in Sources */,
 				2E3C93322211E5EC006FEA3F /* Photo.swift in Sources */,
 				D6A079B32217477F00C4D9FD /* FavoriteVenue.swift in Sources */,
-				D6A0797D2214C3EA00C4D9FD /* SecretKeys.swift in Sources */,
 				D687769E220E306300664CF3 /* DataPersistenceManager.swift in Sources */,
 				2E3C932B2211E524006FEA3F /* SettingsView.swift in Sources */,
 				9336FBFC2211EB20007C661B /* APIClient.swift in Sources */,
