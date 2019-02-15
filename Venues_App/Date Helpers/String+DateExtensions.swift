@@ -33,12 +33,4 @@ extension String {
         }
         return date
     }
-    
-    public var dateStringToDate: Date {
-        let isoDateFormatter = ISO8601DateFormatter()
-        if let dateFormat = isoDateFormatter.date(from: self) {
-            return dateFormat
-        }
-        return date()
-    }
 }
