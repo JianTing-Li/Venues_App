@@ -112,11 +112,9 @@
 			children = (
 				2E3C932F2211E5BE006FEA3F /* Venue.swift */,
 				2E3C93312211E5EC006FEA3F /* Photo.swift */,
-<<<<<<< HEAD
-				1F39D7472215D9A00089F641 /* SecretKeys.swift */,
-=======
+
 				D6A079B22217477F00C4D9FD /* FavoriteVenue.swift */,
->>>>>>> c104fde7f7058c9f624557efcc75e1fdb78fa0fd
+
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,12 +292,8 @@
 				2E3C93232211E21A006FEA3F /* SearchDetailViewController.swift in Sources */,
 				2E3C931A2211E0F4006FEA3F /* SearchViewController.swift in Sources */,
 				2E3C93212211E1EA006FEA3F /* FavoritesViewController.swift in Sources */,
-<<<<<<< HEAD
-
 				1F39D7482215D9A00089F641 /* SecretKeys.swift in Sources */,
 
-=======
->>>>>>> c104fde7f7058c9f624557efcc75e1fdb78fa0fd
 				D6877696220E2FA300664CF3 /* Date+Extensions.swift in Sources */,
 				2E3C93272211E4D2006FEA3F /* SearchDetailView.swift in Sources */,
 				D6877693220E2F7300664CF3 /* VC+Extensions.swift in Sources */,
@@ -310,7 +304,8 @@
 				D6877674220E262000664CF3 /* AppDelegate.swift in Sources */,
 				D6877698220E2FBB00664CF3 /* String+DateExtensions.swift in Sources */,
 				2E3C931C2211E129006FEA3F /* MapViewController.swift in Sources */,
-				D6A079B522174A5700C4D9FD /* FavoriteDataPersistenceModel.swift in Sources */,
+ FavoriteDataPersistenceModel.swift in Sources */,
+
 				D687769B220E301A00664CF3 /* UIColor+Extensions.swift in Sources */,
 				D687768E220E2EDC00664CF3 /* ImageHelper.swift in Sources */,
 				2E3C93252211E4A2006FEA3F /* SearchView.swift in Sources */,
