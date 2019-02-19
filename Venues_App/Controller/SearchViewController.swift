@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SearchViewController: UIViewController {
 public var searchView = SearchView()
@@ -33,8 +34,9 @@ public var searchView = SearchView()
                 self.venues = data
             }
         }
+        
     }
-    
+
     @objc func MapButtonPressed() {
         
     }
