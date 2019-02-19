@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SeachViewDelegate: AnyObject {
-    func cellPressed()
+    func cellPressed(indexPath: IndexPath)
     func setupCell(indexPath: IndexPath) -> UITableViewCell
     func setupNumberOfRowsInSection() -> Int
 }
@@ -84,6 +84,6 @@ extension SearchView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.cellPressed()
+        delegate?.cellPressed(indexPath: indexPath)
     }
 }
