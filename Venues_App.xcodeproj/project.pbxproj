@@ -299,6 +299,7 @@
 				D6877698220E2FBB00664CF3 /* String+DateExtensions.swift in Sources */,
 				2E3C931C2211E129006FEA3F /* MapViewController.swift in Sources */,
 				D6A079B522174A5700C4D9FD /* FavoriteDataPersistenceModel.swift in Sources */,
+
 				D687769B220E301A00664CF3 /* UIColor+Extensions.swift in Sources */,
 				D687768E220E2EDC00664CF3 /* ImageHelper.swift in Sources */,
 				2E3C93252211E4A2006FEA3F /* SearchView.swift in Sources */,
