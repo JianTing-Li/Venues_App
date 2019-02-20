@@ -37,5 +37,10 @@ class SearchDetailViewController: UIViewController {
     }
     
     @objc func FavoriteButtonPressed() {
+        let imageData = searchDetailView.eventDetailImage.image?.jpegData(compressionQuality: 0.5)
+        let favoriteVenue = FavoriteVenue.init(date: Date.getISOTimestamp(), venueName: thisVenue.name, imageData: imageData, formattedAddress: thisVenue.location.formattedAddress)
+        FavoriteDataPersistenceModel.addVenueToFavorite(newFavoriteVenue: favoriteVenue)
+        showAlert(title: "Venue Favorited 😀", message: nil)
     }
 }
+

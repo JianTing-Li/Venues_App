@@ -15,13 +15,14 @@ class FavoritesView: UIView {
         layout.itemSize = CGSize.init(width: 190, height: 280)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         var cv = UICollectionView.init(frame: self.bounds, collectionViewLayout: layout)
         //cv.backgroundColor = .green
         return cv
     }()
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
+        self.favoritesCollectionView.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
         commonInit()
     }
     
@@ -32,7 +33,6 @@ class FavoritesView: UIView {
     }
     private func commonInit(){
         backgroundColor = .white
-        //        self.myCollectionView.register(BSCollectionViewCell.self, forCellWithReuseIdentifier: "BestSellerCell")
         setUpViews()
     }
     private func setUpViews() {
