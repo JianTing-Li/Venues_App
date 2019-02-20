@@ -5,7 +5,6 @@
 //  Created by Jian Ting Li on 2/15/19.
 //  Copyright © 2019 Jian Ting Li. All rights reserved.
 //
-
 import Foundation
 
 struct FavoriteDataPersistenceModel {
@@ -30,7 +29,7 @@ struct FavoriteDataPersistenceModel {
         }
         return favoriteVenues
     }
-   
+    
     static func saveVenues() {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
         do {
@@ -40,7 +39,7 @@ struct FavoriteDataPersistenceModel {
             print("Property list encoding error: \(error)")
         }
     }
-   
+    
     static func addVenueToFavorite(newFavoriteVenue: FavoriteVenue) {
         favoriteVenues.append(newFavoriteVenue)
         saveVenues()
