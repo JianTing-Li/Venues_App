@@ -21,6 +21,13 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         let body = UITextView()
         return body
     }()
+    lazy var minusButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("...", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Futura", size: 25)
+        button.setTitleColor(.black , for: .normal)
+        return button
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -41,6 +48,7 @@ extension FavoritesCollectionViewCell {
         setupImage()
         setupTitle()
         setupDescription()
+        setupButton()
     }
     private func setupImage() {
         addSubview(favoritesImage)
@@ -73,5 +81,12 @@ extension FavoritesCollectionViewCell {
         //favoritesDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
         favoritesDescription.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+    }
+    private func setupButton() {
+        addSubview(minusButton)
+        //minusButton.setImage(UIImage(named: "minus"), for: .normal)
+        minusButton.translatesAutoresizingMaskIntoConstraints = false
+        minusButton.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        minusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
     }
 }
