@@ -12,4 +12,5 @@ struct FavoriteVenue: Codable {
     let venueName: String
     let imageData: Data?
     let formattedAddress: [String]?
+    let comments: String
 }
