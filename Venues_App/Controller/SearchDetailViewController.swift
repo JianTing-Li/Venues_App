@@ -18,6 +18,7 @@ class SearchDetailViewController: UIViewController {
         title = "Events"
         view.addSubview(searchDetailView)
         searchDetailView.eventDetailLabel.text = thisVenue.name
+        searchDetailView.eventDetailDescription.text = thisVenue.location.address
         ApiClient.getVenuePhotos(eventID: thisVenue.id) { (error, data) in
             if let error = error {
                 print(error.errorMessage())

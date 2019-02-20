@@ -16,5 +16,4 @@ class MapViewController: UIViewController {
         title = "My Map"
         view.addSubview(mapView)
     }
-
 }
