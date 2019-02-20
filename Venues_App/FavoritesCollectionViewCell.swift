@@ -15,11 +15,20 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     }()
     lazy var favoritesTitle: UITextView = {
         let title = UITextView()
+        title.text = "This is title"
         return title
     }()
     lazy var favoritesDescription: UITextView = {
         let body = UITextView()
+        body.text = "This is description"
         return body
+    }()
+    lazy var minusButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("...", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Futura", size: 25)
+        button.setTitleColor(.black , for: .normal)
+        return button
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,10 +50,11 @@ extension FavoritesCollectionViewCell {
         setupImage()
         setupTitle()
         setupDescription()
+        setupButton()
     }
     private func setupImage() {
         addSubview(favoritesImage)
-        favoritesImage.translatesAutoresizingMaskIntoConstraints = true
+        favoritesImage.translatesAutoresizingMaskIntoConstraints = false
         favoritesImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         favoritesImage.heightAnchor.constraint(equalToConstant: 130).isActive = true
         favoritesImage.widthAnchor.constraint(equalToConstant: 90).isActive = true
@@ -53,17 +63,15 @@ extension FavoritesCollectionViewCell {
     }
     private func setupTitle() {
         addSubview(favoritesTitle)
-        favoritesTitle.translatesAutoresizingMaskIntoConstraints = true
         favoritesTitle.translatesAutoresizingMaskIntoConstraints = false
         favoritesTitle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         favoritesTitle.topAnchor.constraint(equalTo: favoritesImage.bottomAnchor, constant: 5).isActive = true
         favoritesTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
         favoritesTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11).isActive = true
-        favoritesTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        //favoritesTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
     private func setupDescription() {
         addSubview(favoritesDescription)
-        favoritesDescription.translatesAutoresizingMaskIntoConstraints = true
         favoritesDescription.translatesAutoresizingMaskIntoConstraints = false
         favoritesDescription.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         favoritesDescription.topAnchor.constraint(equalTo: favoritesTitle.bottomAnchor, constant: 10).isActive = true
@@ -71,5 +79,13 @@ extension FavoritesCollectionViewCell {
         favoritesDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         favoritesDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
         
+    }
+    
+    private func setupButton() {
+        addSubview(minusButton)
+        //minusButton.setImage(UIImage(named: "minus"), for: .normal)
+        minusButton.translatesAutoresizingMaskIntoConstraints = false
+        minusButton.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        minusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
     }
 }
