@@ -22,7 +22,10 @@ class FavoritesView: UIView {
     }()
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
-        self.favoritesCollectionView.register(FavoritesCollectionViewCell.self , forCellWithReuseIdentifier: "FavoritesCell")
+
+
+        self.favoritesCollectionView.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
+
         commonInit()
     }
     
@@ -33,7 +36,6 @@ class FavoritesView: UIView {
     }
     private func commonInit(){
         backgroundColor = .white
-        //        self.myCollectionView.register(BSCollectionViewCell.self, forCellWithReuseIdentifier: "BestSellerCell")
         setUpViews()
     }
     private func setUpViews() {

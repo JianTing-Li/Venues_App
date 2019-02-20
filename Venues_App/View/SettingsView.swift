@@ -9,14 +9,28 @@
 import UIKit
 
 class SettingsView: UIView {
-
-    lazy var defaultLocationTextfield: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "  neightborhood, city, state or zip code"
-        textField.textAlignment = .center
-        textField.layer.borderWidth = 5
-        textField.layer.borderColor = UIColor(hexString: "#2ecc71").cgColor
-        return textField
+    
+//    private var locationResultsController: LocationsResultsController = {
+//        let storyboard = UIStoryboard(name: "LocationResults", bundle: nil)
+//        let locationController = storyboard.instantiateViewController(withIdentifier: "LocationsResultsController") as! LocationsResultsController
+//        return locationController
+//    }()
+//    lazy var defaultLocationSearchController: UISearchController = {
+//        let sc = UISearchController(searchResultsController: locationResultsController)
+//        //sc.searchResultsUpdater = locationResultsController
+//        sc.hidesNavigationBarDuringPresentation = false
+//        sc.searchBar.placeholder = "  neightborhood, city, state or zip code"
+//        sc.dimsBackgroundDuringPresentation = false
+//        sc.obscuresBackgroundDuringPresentation = false
+//        //definesPresentationContext = true
+//        sc.searchBar.autocapitalizationType = .none
+//        return sc
+//    }()
+    
+    lazy var defaultLocationSearchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "  neightborhood, city, state or zip code"
+        return searchBar
     }()
     
     lazy var defaultVenueTypeTextfield: UITextField = {
@@ -49,7 +63,8 @@ class SettingsView: UIView {
     }
     private func setUpViews() {
         setupDefaultVenueTypeTextfield()
-        setupDefaultLocationTextfield()
+        setupDefaultLocationSearchBar()
+        setupLocationTableView()
     }
     private func setupDefaultVenueTypeTextfield() {
         addSubview(defaultVenueTypeTextfield)
@@ -60,15 +75,26 @@ class SettingsView: UIView {
         defaultVenueTypeTextfield.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
         defaultVenueTypeTextfield.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    private func setupDefaultLocationTextfield() {
-        addSubview(defaultLocationTextfield)
+    private func setupDefaultLocationSearchBar() {
+        addSubview(defaultLocationSearchBar)
         //defaultLocationTextfield.backgroundColor = .lightGray
-        defaultLocationTextfield.translatesAutoresizingMaskIntoConstraints = false
-        defaultLocationTextfield.topAnchor.constraint(equalTo: defaultVenueTypeTextfield.bottomAnchor, constant: 0).isActive = true
-        defaultLocationTextfield.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
-        defaultLocationTextfield.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-        defaultLocationTextfield.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        defaultLocationSearchBar.translatesAutoresizingMaskIntoConstraints = false
+        defaultLocationSearchBar.topAnchor.constraint(equalTo: defaultVenueTypeTextfield.bottomAnchor, constant: 0).isActive = true
+        defaultLocationSearchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        defaultLocationSearchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        defaultLocationSearchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
-  
+    private func setupLocationTableView() {
+        addSubview(locationTableView)
+        locationTableView.register(SubtitleTableViewCell.self, forCellReuseIdentifier: "LocationCell")
+        locationTableView.translatesAutoresizingMaskIntoConstraints = false
+        locationTableView.topAnchor.constraint(equalTo: defaultLocationSearchBar.bottomAnchor).isActive = true
+        locationTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        locationTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        locationTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    }
+
 }
+
+

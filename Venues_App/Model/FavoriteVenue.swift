@@ -10,6 +10,6 @@ import Foundation
 struct FavoriteVenue: Codable {
     let date: String
     let venueName: String
-    let imageData: Data
-    let formattedAddress: [String]
+    let imageData: Data?
+    let formattedAddress: [String]?
 }
