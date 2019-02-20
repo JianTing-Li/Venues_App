@@ -95,7 +95,9 @@
 			path = Secret;
 			sourceTree = "<group>";
 		};
-		1F7D0687221DDFA1004874A2 /* Recovered References */ = {
+
+		2E3B2CD1221DCF6E00F1E28B /* Recovered References */ = {
+
 			isa = PBXGroup;
 			children = (
 			);
@@ -143,9 +145,10 @@
 				D6877672220E262000664CF3 /* Venues_App */,
 				D6877671220E262000664CF3 /* Products */,
 
-				1F7D0687221DDFA1004874A2 /* Recovered References */,
+				2E3B2CD1221DCF6E00F1E28B /* Recovered References */,
 
 				D6994A04221DCF3D00C5B5FD /* Recovered References */,
+
 
 			);
 			sourceTree = "<group>";
