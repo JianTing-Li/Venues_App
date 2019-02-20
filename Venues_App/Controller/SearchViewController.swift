@@ -40,6 +40,7 @@ class SearchViewController: UIViewController {
     @objc func MapButtonPressed() {
         let mapView = MapViewController()
         mapView.modalTransitionStyle = .flipHorizontal
+        mapView.venues = self.venues
         self.navigationController?.pushViewController(mapView, animated: true)
         self.dismiss(animated: false, completion: nil)
         
