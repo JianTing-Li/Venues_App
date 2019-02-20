@@ -58,6 +58,8 @@ extension FavoritesViewController: UICollectionViewDataSource {
                 }
                 cell.favoritesTitle.text = favoritesVenue[indexPath.row].venueName
                 cell.favoritesDescription.text = favoritesVenue[indexPath.row].date
+                cell.favoritesComments.text =
+                    favoritesVenue[indexPath.row].comments
         
         cell.minusButton.tag = indexPath.row
         cell.minusButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)

@@ -10,7 +10,10 @@ import UIKit
 
 class SearchDetailViewController: UIViewController {
 
-    public var searchDetailView = SearchDetailView()
+    private var searchDetailView = SearchDetailView()
+    
+    private var commentDescription = ""
+    
     var thisVenue: Venue!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +41,26 @@ class SearchDetailViewController: UIViewController {
     
     @objc func FavoriteButtonPressed() {
         let imageData = searchDetailView.eventDetailImage.image?.jpegData(compressionQuality: 0.5)
-        let favoriteVenue = FavoriteVenue.init(date: Date.getISOTimestamp(), venueName: thisVenue.name, imageData: imageData, formattedAddress: thisVenue.location.formattedAddress)
-        FavoriteDataPersistenceModel.addVenueToFavorite(newFavoriteVenue: favoriteVenue)
-         showAlert(title: "Venue Favorited 😀", message: nil)
+        
+//         showAlert(title: "Venue Favorited 😀", message: nil)
+        let alert = UIAlertController(title: "Venue Favorited", message: "Enter a text", preferredStyle: .alert)
+        
+        
+        alert.addTextField { (textField) in
+            textField.text = "Enter Comments Here"
+        }
+        
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0]
+            print("Text field: \(textField.text)")
+            self.commentDescription = textField.text ?? "no comment"
+            let favoriteVenue = FavoriteVenue.init(date: Date.getISOTimestamp(), venueName: self.thisVenue.name, imageData: imageData, formattedAddress: self.thisVenue.location.formattedAddress, comments: self.commentDescription)
+            FavoriteDataPersistenceModel.addVenueToFavorite(newFavoriteVenue: favoriteVenue)
+        }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
 //        let alertController = UIAlertController(title: "Venue Favorited", message: nil, preferredStyle: .alert)
 //
 //        alertController.addTextField(configurationHandler: {
