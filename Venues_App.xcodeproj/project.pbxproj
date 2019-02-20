@@ -95,7 +95,9 @@
 			path = Secret;
 			sourceTree = "<group>";
 		};
+
 		2E3B2CD1221DCF6E00F1E28B /* Recovered References */ = {
+
 			isa = PBXGroup;
 			children = (
 			);
@@ -142,7 +144,12 @@
 			children = (
 				D6877672220E262000664CF3 /* Venues_App */,
 				D6877671220E262000664CF3 /* Products */,
+
 				2E3B2CD1221DCF6E00F1E28B /* Recovered References */,
+
+				D6994A04221DCF3D00C5B5FD /* Recovered References */,
+
+
 			);
 			sourceTree = "<group>";
 		};
@@ -228,6 +235,13 @@
 				1F7D067F221DC76A004874A2 /* FavoriteDataPersistenceModel.swift */,
 			);
 			path = "File Manager Helper";
+			sourceTree = "<group>";
+		};
+		D6994A04221DCF3D00C5B5FD /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

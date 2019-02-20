@@ -16,17 +16,21 @@ class MapViewController: UIViewController {
     private var previousLocation: CLLocation?
     var directions = [MKDirections]()
     
+    //private var longPress: UILongPressGestureRecognizer!
     public var venues: [Venue]!
     
+    private var annotations = [MKAnnotation]()
     
     let mapView = MapView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //mapView.delegate = self
+        mapView.mapView.delegate = self
         self.view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         title = "My Map"
         view.addSubview(mapView)
         checkLocationServices()
+        makeAnnotations()
     }
     
     private func checkLocationServices() {
@@ -37,6 +41,18 @@ class MapViewController: UIViewController {
             showAlert(title: "Error Message", message: "Turn on your locations, please.")
         }
     }
+    
+//    private func configureLongPress() {
+//        longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+//        longPress.minimumPressDuration = 0.5
+//        //mapView.mapView.addGestureRecognizer(longPress)
+//
+//    }
+//
+//    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+//
+//    }
+    
     
     private func setupLocationManager() {
         locationManager.delegate = self
@@ -61,6 +77,7 @@ class MapViewController: UIViewController {
         
     }
     
+    
     private func startTrackingUserLocation() {
         mapView.mapView.showsUserLocation = true
         if let location = locationManager.location?.coordinate {
@@ -82,10 +99,42 @@ extension MapViewController {
     private func getCenterLocation(for mapView: MKMapView) -> CLLocation {
         return CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
     }
+    
+    private func makeAnnotations() {
+        var venueCount = 0 {
+            didSet {
+                DispatchQueue.main.async {
+                    self.mapView.mapView.showAnnotations(self.annotations, animated: true)
+                }
+            }
+        }
+        mapView.mapView.removeAnnotations(annotations)
+        annotations.removeAll()
+        for venue in venues {
+            guard let address = venue.location.address else { return }
+            LocationService.getCoordinate(addressString: address) { (coordinate, error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = coordinate
+                    annotation.title = venue.name
+                    self.annotations.append(annotation)
+                    venueCount += 1
+                }
+            }
+        }
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorized()
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        //set up an action sheet to go to detalVC or the directions
     }
 }

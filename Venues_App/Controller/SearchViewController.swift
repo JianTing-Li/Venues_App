@@ -34,8 +34,8 @@ class SearchViewController: UIViewController {
                 self.venues = data
             }
         }
-        
     }
+
 
     @objc func MapButtonPressed() {
         let mapView = MapViewController()
