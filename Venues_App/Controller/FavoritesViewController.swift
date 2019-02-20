@@ -36,7 +36,7 @@ class FavoritesViewController: UIViewController {
             
 
             self.favoritesVenue = FavoriteDataPersistenceModel.fetchAllFavoriteVenues()
-
+            self.favoritesView.favoritesCollectionView.reloadData()
         }
         actionSheet.addAction(delete)
         self.present(actionSheet, animated: true, completion: nil)
@@ -44,7 +44,7 @@ class FavoritesViewController: UIViewController {
 }
 extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6 //favoritesVenue.count
+        return favoritesVenue.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -53,11 +53,11 @@ extension FavoritesViewController: UICollectionViewDataSource {
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as? FavoritesCollectionViewCell else { return UICollectionViewCell() }
 
-        //        if let image = UIImage(data: favoritesVenue[indexPath.row].imageData) {
-        //            cell.favoritesImage.image = image
-        //        }
-        //        cell.favoritesTitle.text = favoritesVenue[indexPath.row].venueName
-        //        cell.favoritesDescription.text = favoritesVenue[indexPath.row].date
+        if let image = UIImage(data: favoritesVenue[indexPath.row].imageData!) {
+                    cell.favoritesImage.image = image
+                }
+                cell.favoritesTitle.text = favoritesVenue[indexPath.row].venueName
+                cell.favoritesDescription.text = favoritesVenue[indexPath.row].date
         
         cell.minusButton.tag = indexPath.row
         cell.minusButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)

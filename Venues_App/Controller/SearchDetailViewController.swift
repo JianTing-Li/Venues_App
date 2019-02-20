@@ -40,7 +40,25 @@ class SearchDetailViewController: UIViewController {
         let imageData = searchDetailView.eventDetailImage.image?.jpegData(compressionQuality: 0.5)
         let favoriteVenue = FavoriteVenue.init(date: Date.getISOTimestamp(), venueName: thisVenue.name, imageData: imageData, formattedAddress: thisVenue.location.formattedAddress)
         FavoriteDataPersistenceModel.addVenueToFavorite(newFavoriteVenue: favoriteVenue)
-        showAlert(title: "Venue Favorited 😀", message: nil)
+         showAlert(title: "Venue Favorited 😀", message: nil)
+//        let alertController = UIAlertController(title: "Venue Favorited", message: nil, preferredStyle: .alert)
+//
+//        alertController.addTextField(configurationHandler: {
+//            (_ textField: UITextField) -> Void in
+//            textField.placeholder = "Enter Comments"
+//            textField.textAlignment = .center
+//            textField.textColor = UIColor.blue
+//
+//        })
+//
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//
+//        let okAction = UIAlertAction(title: "Ok", style: .default){ in
+//            self.FavoritesView
+//
+//        }
+        
+        
     }
 }
 
