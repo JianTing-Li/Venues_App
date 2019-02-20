@@ -9,23 +9,44 @@
 import UIKit
 
 class SettingsView: UIView {
-
-    lazy var textField1: UITextField = {
+    
+//    private var locationResultsController: LocationsResultsController = {
+//        let storyboard = UIStoryboard(name: "LocationResults", bundle: nil)
+//        let locationController = storyboard.instantiateViewController(withIdentifier: "LocationsResultsController") as! LocationsResultsController
+//        return locationController
+//    }()
+//    lazy var defaultLocationSearchController: UISearchController = {
+//        let sc = UISearchController(searchResultsController: locationResultsController)
+//        //sc.searchResultsUpdater = locationResultsController
+//        sc.hidesNavigationBarDuringPresentation = false
+//        sc.searchBar.placeholder = "  neightborhood, city, state or zip code"
+//        sc.dimsBackgroundDuringPresentation = false
+//        sc.obscuresBackgroundDuringPresentation = false
+//        //definesPresentationContext = true
+//        sc.searchBar.autocapitalizationType = .none
+//        return sc
+//    }()
+    
+    lazy var defaultLocationSearchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "  neightborhood, city, state or zip code"
+        return searchBar
+    }()
+    
+    lazy var defaultVenueTypeTextfield: UITextField = {
         let textField = UITextField()
+        textField.placeholder = "  venue type"
+        textField.textAlignment = .center
+        textField.layer.borderWidth = 5
+        textField.layer.borderColor = UIColor(hexString: "#3498db").cgColor
         return textField
     }()
-    lazy var textField2: UITextField = {
-        let textField = UITextField()
-        return textField
+    
+    lazy var locationTableView: UITableView = {
+        let tv = UITableView()
+        return tv
     }()
-    lazy var label1: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    lazy var label2: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -38,56 +59,42 @@ class SettingsView: UIView {
     }
     private func commonInit(){
         backgroundColor = .white
-        //        self.myCollectionView.register(BSCollectionViewCell.self, forCellWithReuseIdentifier: "BestSellerCell")
         setUpViews()
     }
     private func setUpViews() {
-        setupTextView()
-        setupTextView2()
-        setupLabel1()
-        setupLabel2()
+        setupDefaultVenueTypeTextfield()
+        setupDefaultLocationSearchBar()
+        setupLocationTableView()
     }
-    private func setupTextView() {
-        addSubview(textField1)
-        textField1.backgroundColor = .yellow
-        textField1.translatesAutoresizingMaskIntoConstraints = false
-        textField1.topAnchor.constraint(equalTo: topAnchor, constant: 400).isActive = true
-        textField1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50).isActive = true
-        textField1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50).isActive = true
-        textField1.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    private func setupDefaultVenueTypeTextfield() {
+        addSubview(defaultVenueTypeTextfield)
+        //defaultVenueTypeTextfield.backgroundColor = .lightGray
+        defaultVenueTypeTextfield.translatesAutoresizingMaskIntoConstraints = false
+        defaultVenueTypeTextfield.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        defaultVenueTypeTextfield.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        defaultVenueTypeTextfield.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        defaultVenueTypeTextfield.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    private func setupTextView2() {
-        addSubview(textField2)
-        textField2.backgroundColor = .yellow
-        textField2.translatesAutoresizingMaskIntoConstraints = false
-        textField2.topAnchor.constraint(equalTo: textField1.bottomAnchor, constant: 50).isActive = true
-        textField2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50).isActive = true
-        textField2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50).isActive = true
-        textField2.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    private func setupDefaultLocationSearchBar() {
+        addSubview(defaultLocationSearchBar)
+        //defaultLocationTextfield.backgroundColor = .lightGray
+        defaultLocationSearchBar.translatesAutoresizingMaskIntoConstraints = false
+        defaultLocationSearchBar.topAnchor.constraint(equalTo: defaultVenueTypeTextfield.bottomAnchor, constant: 0).isActive = true
+        defaultLocationSearchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        defaultLocationSearchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        defaultLocationSearchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    private func setupLabel1() {
-        addSubview(label1)
-        label1.backgroundColor = .green
-        label1.translatesAutoresizingMaskIntoConstraints = false
-        //label1.topAnchor.constraint(equalTo: topAnchor, constant: 300).isActive = true
-        label1.bottomAnchor.constraint(equalTo: textField1.topAnchor, constant: -8).isActive = true
-        label1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50).isActive = true
-        label1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -150).isActive = true
-        label1.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        
+    
+    private func setupLocationTableView() {
+        addSubview(locationTableView)
+        locationTableView.register(SubtitleTableViewCell.self, forCellReuseIdentifier: "LocationCell")
+        locationTableView.translatesAutoresizingMaskIntoConstraints = false
+        locationTableView.topAnchor.constraint(equalTo: defaultLocationSearchBar.bottomAnchor).isActive = true
+        locationTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        locationTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        locationTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
-    private func setupLabel2() {
-        addSubview(label2)
-        label2.backgroundColor = .green
-        label2.translatesAutoresizingMaskIntoConstraints = false
-        //label1.topAnchor.constraint(equalTo: topAnchor, constant: 300).isActive = true
-        label2.bottomAnchor.constraint(equalTo: textField2.topAnchor, constant: -8).isActive = true
-        label2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50).isActive = true
-        label2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -150).isActive = true
-        label2.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        
-    }
-  
+
 }
+
+

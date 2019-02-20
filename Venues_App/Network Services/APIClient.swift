@@ -9,8 +9,31 @@
 import Foundation
 
 final class ApiClient {
+
+    static func getVenuePhotos(eventID: String, completionHandler: @escaping (AppError?, [EventPhoto]?) -> Void) {
+        let endpointURLString = "https://api.foursquare.com/v2/venues/\(eventID)/photos?client_id=\(SecretKeys.ClientID)&client_secret=\(SecretKeys.ClientSecret)&v=20190208"
+        
+        NetworkHelper.shared.performDataTask(endpointURLString: endpointURLString) { (error, data) in
+            if let error = error {
+                completionHandler(AppError.networkError(error), nil)
+            } else if let data = data {
+                do {
+                    let eventPhotos = try JSONDecoder().decode(FourSquarePhotos.self, from: data).response.photos.items
+                    guard !eventPhotos.isEmpty else {
+                        print("No photos for this Venue")
+                        return
+                    }
+                    completionHandler(nil, eventPhotos)
+                } catch {
+                     completionHandler(AppError.jsonDecodingError(error), nil)
+                }
+            }
+        }
+        
+    }
+
     static func getVenue(completionHandler: @escaping (AppError?, [Venue]?) -> Void) {
-        let urlString = "https://api.foursquare.com/v2/venues/search?ll=40.7484,-73.9857&client_id=GTFB0TZVWRZNRGCB0HYEJVVXTY2BHGWO2AD44UUA2TZMXGD1&client_secret=SUGBKQVN5I5ZNAKIH10EBR3D3YTQOR2GBHBUGAC0FUGGWCLS&v=20190201"
+        let urlString = "https://api.foursquare.com/v2/venues/search?ll=40.7484,-73.9857&client_id=\(SecretKeys.ClientID)&client_secret=\(SecretKeys.ClientSecret)&v=20190201"
         NetworkHelper.shared.performDataTask(endpointURLString: urlString) { (error, data) in
             if let error = error {
                 completionHandler(error, nil)
@@ -24,4 +47,5 @@ final class ApiClient {
             }
         }
     }
+                    
 }

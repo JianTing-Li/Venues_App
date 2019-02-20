@@ -5,7 +5,6 @@
 //  Created by Jian Ting Li on 2/8/19.
 //  Copyright © 2019 Jian Ting Li. All rights reserved.
 //
-
 import Foundation
 
 extension String {
@@ -32,5 +31,13 @@ extension String {
             date = isoDate
         }
         return date
+    }
+    
+    public var dateStringToDate: Date {
+        let isoDateFormatter = ISO8601DateFormatter()
+        if let dateFormat = isoDateFormatter.date(from: self) {
+            return dateFormat
+        }
+        return date()
     }
 }

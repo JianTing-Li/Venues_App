@@ -13,25 +13,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let VC = SearchViewController()
-        let nav = UINavigationController.init(rootViewController: VC)
-        let tab = UITabBarController()
         let map = MapViewController()
-        map.title = "Map"
         let setting = SettingsViewController()
-        setting.title = "Settings"
         let fav = FavoritesViewController()
+        let tab = UITabBarController()
+        VC.tabBarItem = UITabBarItem.init(title: "Search", image: UIImage(named: "search"), tag: 0)
+        map.title = "Map"
+        setting.title = "Settings"
+        setting.tabBarItem = UITabBarItem.init(title: "Setting", image: UIImage(named: "settings"), tag: 1)
         fav.title = "Favorites"
-        tab.viewControllers = [nav, setting, fav]
+        fav.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(named: "bookmark"), tag: 2)
+        let controller = [VC, setting, fav]
+        tab.viewControllers = controller.map{UINavigationController.init(rootViewController: $0)}
         window = UIWindow(frame: UIScreen.main.bounds)
-<<<<<<< HEAD
-        window?.rootViewController = setting
-=======
-        window?.rootViewController = SearchDetailViewController()
->>>>>>> 220f220c47400897f25e329279199566dc78e62d
+        window?.rootViewController = tab
         window?.makeKeyAndVisible()
         return true
     }
