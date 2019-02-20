@@ -12,7 +12,7 @@ class FavoritesView: UIView {
 
     lazy var favoritesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize.init(width: 400, height: 280)
+        layout.itemSize = CGSize.init(width: 400, height: 400)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         
         layout.scrollDirection = .vertical
