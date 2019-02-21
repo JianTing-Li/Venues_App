@@ -24,9 +24,19 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         view.addSubview(favoritesView)
         favoritesView.favoritesCollectionView.dataSource = self
+        self.favoritesView.favoritesCollectionView.reloadData()
+
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //self.favoritesView.favoritesCollectionView.reloadData()
+        favoritesVenue = FavoriteDataPersistenceModel.fetchAllFavoriteVenues()
+    }
+    
     @objc func buttonPressed(sender: UIButton) {
         let index = sender.tag
         let actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)

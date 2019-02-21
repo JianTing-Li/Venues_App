@@ -26,6 +26,7 @@ class SearchView: UIView {
         searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = " Search Here....."
         searchBar.sizeToFit()
+        searchBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         return searchBar
     }()
     

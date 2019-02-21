@@ -16,6 +16,8 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     lazy var favoritesTitle: UITextView = {
         let title = UITextView()
         title.text = "This is title"
+        title.textAlignment = .center
+        title.font = UIFont(name: "Futura", size: 15)
         return title
     }()
     lazy var favoritesDescription: UITextView = {
@@ -70,18 +72,18 @@ extension FavoritesCollectionViewCell {
     }
     private func setupTitle() {
         addSubview(favoritesTitle)
-        favoritesTitle.backgroundColor = .yellow
+        favoritesTitle.backgroundColor = .white
         favoritesTitle.isEditable = false
         favoritesTitle.translatesAutoresizingMaskIntoConstraints = false
         favoritesTitle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         favoritesTitle.topAnchor.constraint(equalTo: favoritesImage.bottomAnchor, constant: 5).isActive = true
         favoritesTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11).isActive = true
         favoritesTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
-        favoritesTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        favoritesTitle.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     private func setupDescription() {
         addSubview(favoritesDescription)
-        favoritesDescription.backgroundColor = .green
+        favoritesDescription.backgroundColor = .white
         favoritesDescription.isEditable = false
         favoritesDescription.translatesAutoresizingMaskIntoConstraints = false
         favoritesDescription.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -102,7 +104,7 @@ extension FavoritesCollectionViewCell {
     }
     private func setupComments() {
         addSubview(favoritesComments)
-        favoritesComments.backgroundColor = .green
+        favoritesComments.backgroundColor = .white
         favoritesComments.isEditable = false
         favoritesComments.translatesAutoresizingMaskIntoConstraints = false
         favoritesComments.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
