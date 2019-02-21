@@ -11,18 +11,21 @@ import UIKit
 class FavoritesCollectionViewCell: UICollectionViewCell {
     lazy var favoritesImage: UIImageView = {
         let image = UIImageView()
+        image.layer.cornerRadius = 50
         return image
     }()
     lazy var favoritesTitle: UITextView = {
         let title = UITextView()
         title.text = "This is title"
         title.textAlignment = .center
-        title.font = UIFont(name: "Futura", size: 15)
+        title.font = UIFont(name: "Futura", size: 16)
         return title
     }()
     lazy var favoritesDescription: UITextView = {
         let body = UITextView()
         body.text = "This is description"
+        body.textAlignment = .center
+        body.font = UIFont(name: "Futura", size: 14)
         return body
     }()
     lazy var minusButton: UIButton = {
@@ -35,6 +38,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     lazy var favoritesComments: UITextView = {
         let body = UITextView()
         body.text = "Comments"
+        body.textAlignment = .center
         return body
     }()
     override init(frame: CGRect) {
@@ -64,8 +68,9 @@ extension FavoritesCollectionViewCell {
         addSubview(favoritesImage)
         favoritesImage.backgroundColor = .black
         favoritesImage.translatesAutoresizingMaskIntoConstraints = false
+        favoritesImage.layer.cornerRadius = 50
         favoritesImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        favoritesImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        favoritesImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
         favoritesImage.widthAnchor.constraint(equalToConstant: 300).isActive = true
         favoritesImage.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         
@@ -91,7 +96,7 @@ extension FavoritesCollectionViewCell {
         favoritesDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
         favoritesDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         //favoritesDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
-        favoritesDescription.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        favoritesDescription.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
 
@@ -100,7 +105,7 @@ extension FavoritesCollectionViewCell {
         //minusButton.setImage(UIImage(named: "minus"), for: .normal)
         minusButton.translatesAutoresizingMaskIntoConstraints = false
         minusButton.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        minusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
+        minusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
     }
     private func setupComments() {
         addSubview(favoritesComments)
@@ -112,6 +117,6 @@ extension FavoritesCollectionViewCell {
         favoritesComments.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
         favoritesComments.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         //favoritesDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
-        favoritesComments.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        favoritesComments.heightAnchor.constraint(equalToConstant: 75).isActive = true
     }
 }

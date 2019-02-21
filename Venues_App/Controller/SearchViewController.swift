@@ -24,7 +24,7 @@ class SearchViewController: UIViewController {
         self.view.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         tabBarController?.tabBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-        title = "Search"
+        title = "Venyou"
         view.addSubview(searchView)
         searchView.delegate = self
         searchView.searchDelegate = self
