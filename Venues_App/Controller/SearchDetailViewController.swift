@@ -48,7 +48,7 @@ class SearchDetailViewController: UIViewController {
         
         
         alert.addTextField { (textField) in
-            textField.text = "Enter Comments Here"
+            textField.placeholder = "Enter Comments Here"
         }
         
         
@@ -59,27 +59,14 @@ class SearchDetailViewController: UIViewController {
             let favoriteVenue = FavoriteVenue.init(date: Date.getISOTimestamp(), venueName: self.thisVenue.name, imageData: imageData, formattedAddress: self.thisVenue.location?.formattedAddress, comments: self.commentDescription)
             FavoriteDataPersistenceModel.addVenueToFavorite(newFavoriteVenue: favoriteVenue)
         }))
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
+            
+        }
         
-        // 4. Present the alert.
+        alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
-//        let alertController = UIAlertController(title: "Venue Favorited", message: nil, preferredStyle: .alert)
-//
-//        alertController.addTextField(configurationHandler: {
-//            (_ textField: UITextField) -> Void in
-//            textField.placeholder = "Enter Comments"
-//            textField.textAlignment = .center
-//            textField.textColor = UIColor.blue
-//
-//        })
-//
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//
-//        let okAction = UIAlertAction(title: "Ok", style: .default){ in
-//            self.FavoritesView
-//
-//        }
-        
-        
+
     }
+    
 }
 

@@ -11,7 +11,7 @@ import UIKit
 class SearchDetailView: UIView {
 
     public lazy var eventDetailImage: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "pursuit-logo"))
+        let iv = UIImageView(image: UIImage(named: "placeholder-image-2"))
         iv.backgroundColor = .black
         iv.contentMode = .scaleAspectFit
         return iv
