@@ -71,7 +71,9 @@ class SearchView: UIView {
 }
 
 extension SearchView: UISearchBarDelegate {
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
 }
 
 extension SearchView: UITableViewDelegate, UITableViewDataSource {
