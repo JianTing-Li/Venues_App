@@ -42,18 +42,6 @@ class MapViewController: UIViewController {
         }
     }
     
-//    private func configureLongPress() {
-//        longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
-//        longPress.minimumPressDuration = 0.5
-//        //mapView.mapView.addGestureRecognizer(longPress)
-//
-//    }
-//
-//    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
-//
-//    }
-    
-    
     private func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -80,9 +68,9 @@ class MapViewController: UIViewController {
     
     private func startTrackingUserLocation() {
         mapView.mapView.showsUserLocation = true
-        if let location = locationManager.location?.coordinate {
-            setAndCenterRegionOnMap(coordiate: location, meters: 5000)
-        }
+//        if let location = locationManager.location?.coordinate {
+//            setAndCenterRegionOnMap(coordiate: location, meters: 5000)
+//        }
         locationManager.startUpdatingLocation()
         previousLocation = getCenterLocation(for: mapView.mapView)
         
@@ -101,29 +89,16 @@ extension MapViewController {
     }
     
     private func makeAnnotations() {
-        var venueCount = 0 {
-            didSet {
-                DispatchQueue.main.async {
-                    self.mapView.mapView.showAnnotations(self.annotations, animated: true)
-                }
-            }
-        }
         mapView.mapView.removeAnnotations(annotations)
         annotations.removeAll()
         for venue in venues {
-            guard let address = venue.location.address else { return }
-            LocationService.getCoordinate(addressString: address) { (coordinate, error) in
-                if let error = error {
-                    print(error)
-                } else {
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = coordinate
-                    annotation.title = venue.name
-                    self.annotations.append(annotation)
-                    venueCount += 1
-                }
-            }
+            let annotation = MKPointAnnotation()
+            let coordinate = CLLocationCoordinate2D.init(latitude: venue.location.lat, longitude: venue.location.lng)
+            annotation.coordinate = coordinate
+            annotation.title = venue.name
+            self.annotations.append(annotation)
         }
+        mapView.mapView.showAnnotations(self.annotations, animated: true)
     }
 }
 
@@ -134,7 +109,59 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        renderer.strokeColor = .blue
+        return renderer
+    }
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         //set up an action sheet to go to detalVC or the directions
+        guard let userLocation = locationManager.location?.coordinate,
+            let destination = view.annotation?.coordinate else {
+            showAlert(title: "Get Direction Error", message: "Can't get directions because either user or destination coordinate is not found")
+            return
+        }
+        getDirections(from: userLocation, destination: destination)
+    }
+    
+    private func getDirections(from: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
+        let request = createDirectionsRequest(fromCoordinate: from, toDestination: destination)
+        let directions = MKDirections(request: request)
+        resetMapView(newDirections: directions)
+        
+        directions.calculate { [unowned self] (response, error) in
+            if let error = error {
+                print("Can't get directions: \(error)")
+                self.showAlert(title: "Can't get Directions", message: "\(error)" )
+            } else if let response = response {
+                for route in response.routes {
+//                    // extra TODO: show directions word
+                    var stepsStr = ""
+                    let steps = route.steps
+                    steps.forEach { stepsStr += "\($0.instructions)\n" }
+                    self.mapView.mapView.addOverlay(route.polyline)
+                    self.mapView.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                    self.showAlert(title: "Directions", message: stepsStr)
+                    break
+                }
+            }
+        }
+    }
+    
+    private func createDirectionsRequest(fromCoordinate: CLLocationCoordinate2D, toDestination: CLLocationCoordinate2D) -> MKDirections.Request {
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: fromCoordinate))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: toDestination))
+        request.transportType = .automobile
+        request.requestsAlternateRoutes = true
+        return request
+    }
+    
+    private func resetMapView(newDirections: MKDirections) {
+        directions = [MKDirections]()
+        mapView.mapView.removeOverlays(mapView.mapView.overlays)
+        directions.append(newDirections)
+        let _ = directions.map { $0.cancel() }
     }
 }
