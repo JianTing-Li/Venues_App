@@ -38,9 +38,10 @@ class SearchView: UIView {
         searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
         searchBar.delegate = self
         searchBar.showsCancelButton = true
+        searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = "  Type in Venue i.e. Coffee, Bakery, Food"
         searchBar.sizeToFit()
-        searchBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+       // searchBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         return searchBar
     }()
     
@@ -82,13 +83,13 @@ class SearchView: UIView {
         defaultLocationSearchBar.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0).isActive = true
         defaultLocationSearchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         defaultLocationSearchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-        defaultLocationSearchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+
     }
     
     private func setupTableView() {
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0).isActive = true
+        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 50).isActive = true
         tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
