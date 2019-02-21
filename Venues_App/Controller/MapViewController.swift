@@ -135,6 +135,23 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        //set up an action sheet to go to detalVC or the directions
+        // TODO: need to safe unwrap coordinate
+        getDirections(venueCoordinate: view.annotation!.coordinate)
+    }
+    
+    private func getDirections(venueCoordinate: CLLocationCoordinate2D) {
+        guard let userLocation = locationManager.location?.coordinate else {
+            showAlert(title: "Error Message", message: "Warning we can't seem to find your location!")
+            return
+        }
+//        let request = createDirectionsRequest(destinationCoordinate: venueCoordinate, from: userLocation)
+    }
+    
+//    private func createDirectionsRequest(destinationCoordinate: CLLocationCoordinate2D, from coordinate: CLLocationCoordinate2D) -> MKDirections.Request {
+//
+//    }
+    
+    private func resetMapView(withNew directions: MKDirections) {
+        
     }
 }
