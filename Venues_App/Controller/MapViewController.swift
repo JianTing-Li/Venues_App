@@ -120,10 +120,16 @@ extension MapViewController: MKMapViewDelegate {
         //set up an action sheet to go to detalVC or the directions
         guard let userLocation = locationManager.location?.coordinate,
             let destination = view.annotation?.coordinate else {
-            showAlert(title: "Get Direction Error", message: "Can't get directions because either user or destination coordinate is not found")
+                guard let venueLat = self.venues.first?.location?.lat,
+                    let venueLong = self.venues?.first?.location?.lng else {return}
+                let coordinate = CLLocationCoordinate2DMake(venueLat,venueLong)
+                let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+                mapItem.name = "Target location"
+                mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
             return
         }
         getDirections(from: userLocation, destination: destination)
+        
     }
     
     private func getDirections(from: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {

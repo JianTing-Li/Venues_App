@@ -34,14 +34,14 @@ class SearchViewController: UIViewController {
             if let error = error{
                 print("this is a\(error) type error")
             } else {
-                self.getVenue(lat: coordinate.latitude, lng: coordinate.longitude)
+                self.getVenue(keyword:"coffee",lat: coordinate.latitude, lng: coordinate.longitude)
 
             }
         }
         
     }
-        private func getVenue(lat: Double, lng: Double){
-        ApiClient.getVenue(lat: lat, lng: lng) { (error, data) in
+    private func getVenue(keyword: String,lat: Double, lng: Double){
+        ApiClient.getVenue(keyword: keyword, lat: lat, lng: lng) { (error, data) in
             if let error = error {
                 print(error.errorMessage())
             } else if let data = data {
@@ -56,7 +56,6 @@ class SearchViewController: UIViewController {
         mapView.modalTransitionStyle = .flipHorizontal
         mapView.venues = self.venues
         self.navigationController?.pushViewController(mapView, animated: true)
-        self.dismiss(animated: false, completion: nil)
         
     }
     
@@ -94,7 +93,7 @@ extension SearchViewController: SearchBarDelegate{
             if let error = error{
                 print("this is a\(error) type error")
             } else {
-              self.getVenue(lat: coordinate.latitude, lng: coordinate.longitude)
+                self.getVenue(keyword: "tacos", lat: coordinate.latitude, lng: coordinate.longitude)
                 
             }
         }
