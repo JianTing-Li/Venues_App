@@ -40,6 +40,8 @@ class FavoritesViewController: UIViewController {
     @objc func buttonPressed(sender: UIButton) {
         let index = sender.tag
         let actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
+        }
         let delete = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
             FavoriteDataPersistenceModel.deleteFavoriteVenue(at: index)
 
@@ -48,6 +50,7 @@ class FavoritesViewController: UIViewController {
             self.favoritesVenue = FavoriteDataPersistenceModel.fetchAllFavoriteVenues()
             self.favoritesView.favoritesCollectionView.reloadData()
         }
+        actionSheet.addAction(cancelAction)
         actionSheet.addAction(delete)
         self.present(actionSheet, animated: true, completion: nil)
     }
@@ -70,6 +73,10 @@ extension FavoritesViewController: UICollectionViewDataSource {
                 cell.favoritesDescription.text = favoritesVenue[indexPath.row].date
                 cell.favoritesComments.text =
                     favoritesVenue[indexPath.row].comments
+        
+        cell.layer.cornerRadius = 50
+        cell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        cell.layer.borderWidth = 2
         
         cell.minusButton.tag = indexPath.row
         cell.minusButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
