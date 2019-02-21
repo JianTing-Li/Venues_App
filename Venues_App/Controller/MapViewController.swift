@@ -116,6 +116,7 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+
         //set up an action sheet to go to detalVC or the directions
         guard let userLocation = locationManager.location?.coordinate,
             let destination = view.annotation?.coordinate else {

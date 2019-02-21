@@ -18,16 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let VC = SearchViewController()
         let map = MapViewController()
-        let setting = SettingsViewController()
         let fav = FavoritesViewController()
         let tab = UITabBarController()
         VC.tabBarItem = UITabBarItem.init(title: "Search", image: UIImage(named: "search"), tag: 0)
         map.title = "Map"
-        setting.title = "Settings"
-        setting.tabBarItem = UITabBarItem.init(title: "Setting", image: UIImage(named: "settings"), tag: 1)
         fav.title = "Favorites"
-        fav.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(named: "bookmark"), tag: 2)
-        let controller = [VC, setting, fav]
+        fav.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(named: "bookmark"), tag: 1)
+        let controller = [VC, fav]
         tab.viewControllers = controller.map{UINavigationController.init(rootViewController: $0)}
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tab
