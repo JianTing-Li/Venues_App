@@ -74,6 +74,8 @@ extension SearchViewController: SeachViewDelegate{
         
     }
     
+    
+        
     func setupNumberOfRowsInSection() -> Int {
         return venues.count
     }
