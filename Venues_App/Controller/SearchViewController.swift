@@ -22,24 +22,39 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-        title = "Search"
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        tabBarController?.tabBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        title = "Venyou"
         view.addSubview(searchView)
         searchView.delegate = self
+        searchView.searchDelegate = self
         let MapButton = UIBarButtonItem.init(title: "Map", style: .plain, target: self, action: #selector(MapButtonPressed))
         self.navigationItem.rightBarButtonItem = MapButton
-        ApiClient.getVenue { (error, data) in
+        LocationService.getCoordinate(addressString: "New York") { (coordinate, error) in
+            if let error = error{
+                print("this is a\(error) type error")
+            } else {
+                self.getVenue(lat: coordinate.latitude, lng: coordinate.longitude)
+
+            }
+        }
+        
+    }
+        private func getVenue(lat: Double, lng: Double){
+        ApiClient.getVenue(lat: lat, lng: lng) { (error, data) in
             if let error = error {
                 print(error.errorMessage())
             } else if let data = data {
                 self.venues = data
             }
         }
-        
     }
+    
 
     @objc func MapButtonPressed() {
         let mapView = MapViewController()
         mapView.modalTransitionStyle = .flipHorizontal
+        mapView.venues = self.venues
         self.navigationController?.pushViewController(mapView, animated: true)
         self.dismiss(animated: false, completion: nil)
         
@@ -54,7 +69,7 @@ extension SearchViewController: SeachViewDelegate{
         cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle,
                                reuseIdentifier: "VenueCell")
         cell.textLabel?.text = venues[indexPath.row].name
-        cell.detailTextLabel?.text = venues[indexPath.row].location.address
+        cell.detailTextLabel?.text = venues[indexPath.row].location!.address
         return cell
         
     }
@@ -71,4 +86,16 @@ extension SearchViewController: SeachViewDelegate{
 
     }
 }
-
+extension SearchViewController: SearchBarDelegate{
+    func searchButtonClicked(keyword: String) {
+        LocationService.getCoordinate(addressString: keyword) { (coordinate, error) in
+            if let error = error{
+                print("this is a\(error) type error")
+            } else {
+              self.getVenue(lat: coordinate.latitude, lng: coordinate.longitude)
+                
+            }
+        }
+    }
+    
+}

@@ -12,7 +12,7 @@ class FavoritesView: UIView {
 
     lazy var favoritesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize.init(width: 400, height: 280)
+        layout.itemSize = CGSize.init(width: 400, height: 400)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         
         layout.scrollDirection = .vertical
@@ -43,7 +43,7 @@ class FavoritesView: UIView {
     }
     private func setupCollectionView() {
         addSubview(favoritesCollectionView)
-        favoritesCollectionView.backgroundColor = .blue 
+        favoritesCollectionView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         favoritesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         favoritesCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
         favoritesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true

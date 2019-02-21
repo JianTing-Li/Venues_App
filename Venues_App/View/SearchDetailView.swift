@@ -11,7 +11,7 @@ import UIKit
 class SearchDetailView: UIView {
 
     public lazy var eventDetailImage: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "pursuit-logo"))
+        let iv = UIImageView(image: UIImage(named: "placeholder-image-2"))
         iv.backgroundColor = .black
         iv.contentMode = .scaleAspectFit
         return iv
@@ -56,9 +56,10 @@ class SearchDetailView: UIView {
     private func setupImage() {
         addSubview(eventDetailImage)
         eventDetailImage.translatesAutoresizingMaskIntoConstraints = false
-        eventDetailImage.topAnchor.constraint(equalTo: topAnchor, constant: 22).isActive = true
+        eventDetailImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         eventDetailImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22).isActive = true
         eventDetailImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22).isActive = true
+        eventDetailImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -250).isActive = true
         
     }
     

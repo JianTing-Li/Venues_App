@@ -17,15 +17,15 @@ struct Response: Codable {
 struct Venue: Codable {
     let id: String
     let name: String
-    let location: Location
+    let location: Location?
 }
 struct Location: Codable {
     let address: String?
     let lat: Double
     let lng: Double
     let postalCode: String?
-    let city: String
-    let state: String
-    let country: String
+    let city: String?
+    let state: String?
+    let country: String?
     let formattedAddress: [String]?
 }
