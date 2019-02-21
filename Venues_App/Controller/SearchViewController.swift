@@ -25,9 +25,21 @@ class SearchViewController: UIViewController {
         title = "Search"
         view.addSubview(searchView)
         searchView.delegate = self
+        searchView.searchDelegate = self
         let MapButton = UIBarButtonItem.init(title: "Map", style: .plain, target: self, action: #selector(MapButtonPressed))
         self.navigationItem.rightBarButtonItem = MapButton
-        ApiClient.getVenue { (error, data) in
+        LocationService.getCoordinate(addressString: "New York") { (coordinate, error) in
+            if let error = error{
+                print("this is a\(error) type error")
+            } else {
+                self.getVenue(lat: coordinate.latitude, lng: coordinate.longitude)
+
+            }
+        }
+        
+    }
+        private func getVenue(lat: Double, lng: Double){
+        ApiClient.getVenue(lat: lat, lng: lng) { (error, data) in
             if let error = error {
                 print(error.errorMessage())
             } else if let data = data {
@@ -35,7 +47,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
-
+    
 
     @objc func MapButtonPressed() {
         let mapView = MapViewController()
@@ -55,7 +67,7 @@ extension SearchViewController: SeachViewDelegate{
         cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle,
                                reuseIdentifier: "VenueCell")
         cell.textLabel?.text = venues[indexPath.row].name
-        cell.detailTextLabel?.text = venues[indexPath.row].location.address
+        cell.detailTextLabel?.text = venues[indexPath.row].location!.address
         return cell
         
     }
@@ -72,4 +84,16 @@ extension SearchViewController: SeachViewDelegate{
 
     }
 }
-extension SearchViewController: 
+extension SearchViewController: SearchBarDelegate{
+    func searchButtonClicked(keyword: String) {
+        LocationService.getCoordinate(addressString: keyword) { (coordinate, error) in
+            if let error = error{
+                print("this is a\(error) type error")
+            } else {
+              self.getVenue(lat: coordinate.latitude, lng: coordinate.longitude)
+                
+            }
+        }
+    }
+    
+}

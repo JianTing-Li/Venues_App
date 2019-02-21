@@ -13,10 +13,14 @@ protocol SeachViewDelegate: AnyObject {
     func setupCell(indexPath: IndexPath) -> UITableViewCell
     func setupNumberOfRowsInSection() -> Int
 }
+protocol SearchBarDelegate: AnyObject {
+    func searchButtonClicked(keyword: String)
+}
 
 class SearchView: UIView {
 
     weak var delegate: SeachViewDelegate?
+    weak var searchDelegate: SearchBarDelegate?
     
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -72,7 +76,8 @@ class SearchView: UIView {
 
 extension SearchView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        guard let searchText = searchBar.text else {return}
+        searchDelegate?.searchButtonClicked(keyword: searchText)
     }
 }
 

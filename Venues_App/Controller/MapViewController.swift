@@ -93,7 +93,7 @@ extension MapViewController {
         annotations.removeAll()
         for venue in venues {
             let annotation = MKPointAnnotation()
-            let coordinate = CLLocationCoordinate2D.init(latitude: venue.location.lat, longitude: venue.location.lng)
+            let coordinate = CLLocationCoordinate2D.init(latitude: (venue.location?.lat)!, longitude: venue.location!.lng)
             annotation.coordinate = coordinate
             annotation.title = venue.name
             self.annotations.append(annotation)
