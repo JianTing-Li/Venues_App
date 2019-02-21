@@ -22,7 +22,7 @@ class SearchDetailViewController: UIViewController {
         view.addSubview(searchDetailView)
         searchDetailView.eventDetailLabel.text = thisVenue.name
         searchDetailView.eventDetailDescription.text = thisVenue.location?.address
-        searchDetailView.eventDetailDescription.text = "\(thisVenue.location?.state), \(thisVenue.location?.city),\(thisVenue.location?.country), \(thisVenue.location?.postalCode ?? "no postal code")"
+        searchDetailView.eventDetailDescription.text = "\(thisVenue.location?.state ?? "no state"),\(thisVenue.location?.city ?? "no city"),\(thisVenue.location?.country ?? "no country"), \(thisVenue.location?.postalCode ?? "no postal code")"
         ApiClient.getVenuePhotos(eventID: thisVenue.id) { (error, data) in
             if let error = error {
                 print(error.errorMessage())
@@ -54,7 +54,6 @@ class SearchDetailViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert!.textFields![0]
-            print("Text field: \(textField.text)")
             self.commentDescription = textField.text ?? "no comment"
             let favoriteVenue = FavoriteVenue.init(date: Date.getISOTimestamp(), venueName: self.thisVenue.name, imageData: imageData, formattedAddress: self.thisVenue.location?.formattedAddress, comments: self.commentDescription)
             FavoriteDataPersistenceModel.addVenueToFavorite(newFavoriteVenue: favoriteVenue)

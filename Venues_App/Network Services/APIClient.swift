@@ -32,8 +32,8 @@ final class ApiClient {
         
     }
 
-    static func getVenue(lat: Double, lng:Double, completionHandler: @escaping (AppError?, [Venue]?) -> Void) {
-        let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(lat),\(lng)&client_id=\(SecretKeys.ClientID)&client_secret=\(SecretKeys.ClientSecret)&v=20190201"
+    static func getVenue(keyword: String,lat: Double, lng:Double, completionHandler: @escaping (AppError?, [Venue]?) -> Void) {
+        let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(lat),\(lng)&query=\(keyword)&client_id=\(SecretKeys.ClientID)&client_secret=\(SecretKeys.ClientSecret)&v=20190201"
         NetworkHelper.shared.performDataTask(endpointURLString: urlString) { (error, data) in
             if let error = error {
                 completionHandler(error, nil)

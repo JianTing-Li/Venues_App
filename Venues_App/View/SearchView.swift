@@ -16,12 +16,16 @@ protocol SeachViewDelegate: AnyObject {
 protocol SearchBarDelegate: AnyObject {
     func searchButtonClicked(keyword: String)
 }
+protocol DefaultSearchBarDelegate: AnyObject {
+    func searchButtonClicked(keyword: String)
+
+}
 
 class SearchView: UIView {
 
     weak var delegate: SeachViewDelegate?
     weak var searchDelegate: SearchBarDelegate?
-    
+    weak var defaultSearchDelegate: DefaultSearchBarDelegate?
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
@@ -96,11 +100,18 @@ class SearchView: UIView {
 }
 
 extension SearchView: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else {return}
-        searchDelegate?.searchButtonClicked(keyword: searchText)
+     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+       
+        if searchBar == defaultLocationSearchBar {
+            guard let defaultSearchText = searchBar.text else {return}
+            defaultSearchDelegate?.searchButtonClicked(keyword: defaultSearchText)
+        } else {
+            guard let searchText = searchBar.text else {return}
+            searchDelegate?.searchButtonClicked(keyword: searchText)
+        }
     }
 }
+
 
 extension SearchView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
