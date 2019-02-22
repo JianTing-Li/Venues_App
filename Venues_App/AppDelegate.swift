@@ -16,17 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let VC = SearchViewController()
-//        let map = MapViewController()
-//        let fav = FavoritesViewController()
+        let VC = SearchViewController()
+        let map = MapViewController()
+        let fav = FavoritesViewController()
         let cover = CoverPageViewController()
-//        let tab = UITabBarController()
-//        VC.tabBarItem = UITabBarItem.init(title: "Search", image: UIImage(named: "search"), tag: 0)
-//        map.title = "Map"
-//        fav.title = "Favorites"
-//        fav.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(named: "bookmark"), tag: 1)
-//        let controller = [VC, fav]
-//        tab.viewControllers = controller.map{UINavigationController.init(rootViewController: $0)}
+        let tab = UITabBarController()
+        VC.tabBarItem = UITabBarItem.init(title: "Search", image: UIImage(named: "search"), tag: 0)
+        map.title = "Map"
+        fav.title = "Favorites"
+        fav.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(named: "bookmark"), tag: 1)
+        let controller = [VC, fav]
+        tab.viewControllers = controller.map{UINavigationController.init(rootViewController: $0)}
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = cover
         window?.makeKeyAndVisible()

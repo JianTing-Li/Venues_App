@@ -16,12 +16,16 @@ protocol SeachViewDelegate: AnyObject {
 protocol SearchBarDelegate: AnyObject {
     func searchButtonClicked(keyword: String)
 }
+protocol DefaultSearchBarDelegate: AnyObject {
+    func searchButtonClicked(keyword: String)
+
+}
 
 class SearchView: UIView {
 
     weak var delegate: SeachViewDelegate?
     weak var searchDelegate: SearchBarDelegate?
-    
+    weak var defaultSearchDelegate: DefaultSearchBarDelegate?
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
@@ -38,9 +42,10 @@ class SearchView: UIView {
         searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
         searchBar.delegate = self
         searchBar.showsCancelButton = true
+        searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = "  Type in Venue i.e. Coffee, Bakery, Food"
         searchBar.sizeToFit()
-        searchBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+       // searchBar.barTintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         return searchBar
     }()
     
@@ -82,13 +87,13 @@ class SearchView: UIView {
         defaultLocationSearchBar.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0).isActive = true
         defaultLocationSearchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         defaultLocationSearchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-        defaultLocationSearchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+
     }
     
     private func setupTableView() {
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0).isActive = true
+        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 50).isActive = true
         tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
@@ -96,11 +101,18 @@ class SearchView: UIView {
 }
 
 extension SearchView: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else {return}
-        searchDelegate?.searchButtonClicked(keyword: searchText)
+     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+       
+        if searchBar == defaultLocationSearchBar {
+            guard let defaultSearchText = searchBar.text else {return}
+            defaultSearchDelegate?.searchButtonClicked(keyword: defaultSearchText)
+        } else {
+            guard let searchText = searchBar.text else {return}
+            searchDelegate?.searchButtonClicked(keyword: searchText)
+        }
     }
 }
+
 
 extension SearchView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
