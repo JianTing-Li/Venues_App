@@ -116,20 +116,33 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let index = annotations.firstIndex { $0.title == view.annotation!.title }
+        let selectedVenue = venues[index!]
 
-        //set up an action sheet to go to detalVC or the directions
-        guard let userLocation = locationManager.location?.coordinate,
-            let destination = view.annotation?.coordinate else {
-                guard let venueLat = self.venues.first?.location?.lat,
-                    let venueLong = self.venues?.first?.location?.lng else {return}
-                let coordinate = CLLocationCoordinate2DMake(venueLat,venueLong)
-                let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-                mapItem.name = "Target location"
-                mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
-            return
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let directions = UIAlertAction(title: "Get Directions", style: .default) { (action) in
+            guard let userLocation = self.locationManager.location?.coordinate,
+                let destination = view.annotation?.coordinate else {
+                    guard let venueLat = self.venues.first?.location?.lat,
+                        let venueLong = self.venues?.first?.location?.lng else {return}
+                    let coordinate = CLLocationCoordinate2DMake(venueLat,venueLong)
+                    let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+                    mapItem.name = "Target location"
+                    mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+                    return
+            }
+            self.getDirections(from: userLocation, destination: destination)
         }
-        getDirections(from: userLocation, destination: destination)
-        
+        let segue = UIAlertAction(title: "Venue Info", style: .default) { (action) in
+            let detailVC = SearchDetailViewController()
+            detailVC.thisVenue = selectedVenue
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        actionSheet.addAction(directions)
+        actionSheet.addAction(segue)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
     }
     
     private func getDirections(from: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
